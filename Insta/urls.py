@@ -1,7 +1,8 @@
 from django.urls import path
 
-from . import views
+# from . import views
+from Insta.views import PostListView
 
 urlpatterns = [
-    path('', views.HelloDjango.as_view()),
+    path('', PostListView.as_view()),
 ]
