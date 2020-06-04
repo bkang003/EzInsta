@@ -1,10 +1,19 @@
 {% load static %}
+<header>
+    <div>
+        <a href="{% url 'make_post' %}">Make Post </a>
+    </div>
+</header>
+
 <div>
     {% comment %} {% for post in object_list %}
         <img src="{{ post.image.url }}" width=200 height=200>
     {% endfor %} {% endcomment %}
     {% for post in object_list %}
         {% comment %} <p>{{post.title}} {{post.pk}}</p> {% endcomment %}
-        <img src="{{ post.image.url }}" width=350 height=350>  
+        <a href="{% url 'post_detail' post.id %}">
+        {% comment %} <a href="{{post.get_absolute_url}}"> {% endcomment %}
+            <img src="/{{ post.image }}" width=350 height=350>
+        </a>
     {% endfor %}
 </div>
